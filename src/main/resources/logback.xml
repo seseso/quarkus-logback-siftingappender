@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <logger name="com.carrot" level="INFO"/>
+    <logger name="com.github.benmanes.caffeine" level="ERROR" />
+
+    <!-- Console Appender 
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy.MM.dd HH:mm:ss.SSS} %highlight(%-5level) [%blue(%logger:%L)] [%boldGreen(%thread)] %msg%n</pattern>
+        </encoder>
+        <withJansi>true</withJansi>
+    </appender>
+    -->
+    <!-- File Appender -->
+    <appender name="FILE-THREAD" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>logFileName</key>
+            <defaultValue>sifting.log</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="${logFileName}" class="ch.qos.logback.core.FileAppender">
+                <file>${logFileName}</file>
+                <encoder>
+                    <pattern>%d{yyyy.MM.dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}:%L - %msg%n</pattern>
+                </encoder>
+            </appender>
+        </sift>
+    </appender>
+    
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>tests.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>LOGBACK- %-5level %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+     <root level="INFO">
+        <!--appender-ref ref="STDOUT"/-->
+        <appender-ref ref="FILE-THREAD"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    
+</configuration>
