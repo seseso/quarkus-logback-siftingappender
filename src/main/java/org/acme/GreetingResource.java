@@ -26,10 +26,11 @@ public class GreetingResource {
             String threadName = Thread.currentThread().getName();
             MDC.put("logFileName", "sifting_" + threadName + ".log");
             LOGGER.info("Hello Logback for thread {}", threadName);
+            MDC.remove("logFileName");
         });
         
         
-        LOGGER.info("Hello Logback!!!");
+        LOGGER.info("Hello Logback");
         return "Hello RESTEasy";
     }
 }

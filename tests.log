@@ -1,0 +1,5 @@
+LOGBACK- INFO  code-with-quarkus 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.1.1.Final) started in 1.727s. Listening on: http://0.0.0.0:8080
+LOGBACK- INFO  Profile prod activated. 
+LOGBACK- INFO  Installed features: [cdi, jdbc-postgresql, logging-logback, resteasy, resteasy-jackson, smallrye-context-propagation]
+LOGBACK- INFO  Hello Logback
+LOGBACK- INFO  Hello Logback for thread executor-thread-1
